@@ -59,3 +59,16 @@
 # result = express(*data)
 
 # print(*result, sep='\n')
+
+
+def typification(data):
+    result = {}
+    for item in data:
+        item_type = type(item)
+        if item_type not in result:
+            result[item_type] = []
+        result[item_type].append(item)
+    return result
+
+
+

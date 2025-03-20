@@ -125,3 +125,48 @@
 #         image.thumbnail(size)
 #         res = image.quantize(colors=n_colors)
 #         res.save("res.bmp")
+
+
+# from PIL import Image, ImageOps
+
+# border_size = int(input())
+# color = input()
+
+# with Image.open("c:/Users/Jasmina/Desktop/Yandex lessons Python/lesson4/owl.jpg") as image:
+#     ImageOps.expand(image, border=border_size, fill=color).save("res.jpg")
+
+
+# from PIL import Image
+
+# grey = int(input("Enter the grey level (0-255): "))
+
+# with Image.open("c:/Users/Jasmina/Desktop/Yandex lessons Python/lesson5/tree.png") as im:
+#     box = (50, 50, 450, 450)
+#     region = im.crop(box)
+
+#     pixels = region.load()
+#     for i in range(region.size[0]):
+#         for j in range(region.size[1]):
+#             r, g, b, *a = pixels[i, j]
+#             if (r, g, b) != (0, 0, 0):
+#                 pixels[i, j] = (grey, grey, grey) + tuple(a)
+
+#     region = region.transpose(Image.Transpose.ROTATE_90)
+#     region = region.resize((region.size[0], region.size[1] // 2))
+
+#     im.paste(region, (300, 400))
+
+#     im.save("shadow.png")
+
+
+# from PIL import Image, ImageOps
+
+# s = int(input())
+
+# border_size = s // 10
+
+# with Image.open("c:/Users/Jasmina/Desktop/Yandex lessons Python/lesson5/tree.png") as im:
+
+#     im.resize((s - 2 * border_size, s - 2 * border_size))
+
+#     ImageOps.expand(im, border=border_size, fill="#208d80").save("res.jpg")
