@@ -61,14 +61,31 @@
 # print(*result, sep='\n')
 
 
-def typification(data):
-    result = {}
-    for item in data:
-        item_type = type(item)
-        if item_type not in result:
-            result[item_type] = []
-        result[item_type].append(item)
-    return result
+# def typification(data):
+#     result = {}
+#     for item in data:
+#         item_type = item.__class__.__name__
+#         if item_type not in result:
+#             result[item_type] = []
+#         result[item_type].append(item)
+#     return result
 
 
+# def secret_sort(secret_avatars):
+#     vowels = {"a", "e", "i", "o", "u"}
 
+#     def count_vowels_on_odd_indices(name):
+#         return sum(1 for i, char in enumerate(name.lower()) if i % 2 != 0 and char in vowels)
+
+#     secret_avatars.sort(key=lambda name: (count_vowels_on_odd_indices(name), secret_avatars.index(name)))
+
+
+def secret_sort(secret_avatars):
+    d = {}
+
+    for name in secret_avatars:
+        count = sum(1 for i, char in enumerate(name) if i %
+                    2 == 1 and char in 'aeiouyAEIOUY')
+        d[name] = count
+
+    secret_avatars.sort(key=lambda name: d[name])
